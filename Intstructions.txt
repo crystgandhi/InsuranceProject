@@ -1,2 +1,4 @@
 Updated Pom.xml file
 Then Add Page Objects and TestNg Test File
+InsuranceProject_branch2 merged with master
+Updated Sr/test/Java, created InsuranceProject_branch2
