@@ -53,18 +53,65 @@ public class RegisterHerePage {
 		Select selectyear=new Select(dob3);
 		selectyear.selectByIndex(5);
 	}
-	//input[@id='licencetype_f']
-	//input[@id='user_address_attributes_street']
-	//input[@id='user_address_attributes_city']
-	//input[@id='user_address_attributes_county']
-	//input[@id='user_address_attributes_postcode']
-	//input[@id='user_user_detail_attributes_email']
-	//input[@id='user_user_detail_attributes_password']
-	//input[@id='user_user_detail_attributes_password_confirmation']
-	//input[@name='submit']
-
-	//dd
+	@FindBy(xpath="//input[@id='licencetype_f']")
+	WebElement licencetype;
+	public void licenceType() {
+		licencetype.click();
+	}
+	@FindBy(xpath="//select[@id='user_licenceperiod']")
+	WebElement licenceperiod;
+	public void selectdLicencePeriod() {
+		Select selectyear=new Select(licenceperiod);
+		selectyear.selectByIndex(3);
+	}
+	@FindBy(xpath="//select[@id='user_occupation_id']")
+	WebElement occupationId;
+	public void selectdoccupationId() {
+		Select selectyear=new Select(occupationId);
+		selectyear.selectByIndex(11);
+	}
+	@FindBy(xpath="//input[@id='user_address_attributes_street']")
+	WebElement streetName;
+	public void enterStreetname(String streetname) {
+		streetName.sendKeys(streetname);
+	}
+	@FindBy(xpath="//input[@id='user_address_attributes_city']")
+	WebElement cityName;
+	public void enterCityname(String cityname) {
+		cityName.sendKeys(cityname);
+	}	
+	@FindBy(xpath="//input[@id='user_address_attributes_county']")
+	WebElement county;
+	public void enterCountyname(String countyname) {
+		county.sendKeys(countyname);
+	}
+	@FindBy(xpath="//input[@id='user_address_attributes_postcode']")
+	WebElement postalcode;
+	public void enterpostalCode(String postcode) {
+		postalcode.sendKeys(postcode);
+	}
+	@FindBy(xpath="	//input[@id='user_user_detail_attributes_email']")
+	WebElement email;
+	public void enterEmail(String emailid) {
+		email.sendKeys(emailid);
+	}
+	@FindBy(xpath="//input[@id='user_user_detail_attributes_password']")
+	WebElement password;
+	public void enterPassword(String pword) {
+		password.sendKeys(pword);
+	}
+	@FindBy(xpath="//input[@id='user_user_detail_attributes_password_confirmation']")
+	WebElement confirmpassword;
+	public void enterConfirmPassword(String confirmpword) {
+		confirmpassword.sendKeys(confirmpword);
+	}
+	@FindBy(xpath="//input[@name='submit']")
+	WebElement submitbtn;
+	public void submitbtnClick() {
+		submitbtn.click();
+	}
 	
-	//select[@id='user_licenceperiod']
-	//select[@id='user_occupation_id']
+		
+	
+	
 }
