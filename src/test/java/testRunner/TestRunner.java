@@ -6,7 +6,8 @@ import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = { ".//Features/registration.feature" }, 
+@CucumberOptions(features = { ".//Features/registration.feature",
+		                      ".//Features/requestQuotation.feature"}, 
                    glue = {"stepDefinitions" }, 
                    dryRun = false, 
                    monochrome = true, 

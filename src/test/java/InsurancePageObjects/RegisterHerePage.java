@@ -110,8 +110,11 @@ public class RegisterHerePage {
 	public void submitbtnClick() {
 		submitbtn.click();
 	}
-	
-		
+		@FindBy(xpath="//*[@value='Log out']")
+		WebElement logout;
+		public void clickLogout() {
+			logout.click();
+		}
 	
 	
 }
