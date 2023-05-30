@@ -29,3 +29,4 @@ Feature: User Registration Page
   And User enter loginPassword as "john123@2020"
   And Usen click on the loginbtn
   Then User see the PageTitle as "Broker Insurance WebPage"
+  Then click Logout
