@@ -105,16 +105,12 @@ public class RegisterHerePage {
 	public void enterConfirmPassword(String confirmpword) {
 		confirmpassword.sendKeys(confirmpword);
 	}
-	@FindBy(xpath="//input[@name='submit']")
+	@FindBy(xpath="//input[@value='Create']")
 	WebElement submitbtn;
 	public void submitbtnClick() {
 		submitbtn.click();
 	}
-		@FindBy(xpath="//*[@value='Log out']")
-		WebElement logout;
-		public void clickLogout() {
-			logout.click();
-		}
+		
 	
 	
 }

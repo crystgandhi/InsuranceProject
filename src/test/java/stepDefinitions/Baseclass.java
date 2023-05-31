@@ -1,6 +1,9 @@
 package stepDefinitions;
 
+import java.util.Properties;
+
 import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 
 import InsurancePageObjects.GoToRegistrationPage;
@@ -17,6 +20,8 @@ public class Baseclass {
 	public LoginPage lp;
 	public Homepage hp;
 	public RequestQuotationPage rqp;
+	public static Logger logger;
+	public Properties prop;
 	
 	public static String randomString(){
 		String generatedString1=RandomStringUtils.randomAlphabetic(5);
