@@ -27,4 +27,16 @@ public class LoginPage {
 	public void Loginbtnclick() {
 		loginbtn.click();
 	}
-}
+	@FindBy(xpath="//*[@value='Log out']")
+	WebElement logout;
+	public void clickLogout() {
+		logout.click();
+	}
+	@FindBy(xpath="//span/b")
+	WebElement errormsg;
+	public String errorMessage() {
+		return errormsg.getText();
+	}
+	
+	
+	}

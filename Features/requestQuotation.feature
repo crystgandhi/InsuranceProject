@@ -10,6 +10,18 @@ Feature: Request A Quotation for Insuracne Broker system
     When User click on requestQuotation link
    Then User should see the title as "Request a quotation"
     And User can see "polciyexcess-16%
+    When user select BreakdownCover
+    Then User can see "Windscreenrepair"
+    When User select windscreen repairtype
+    Then user can see "ExcessPaid"
+    And User can see "vehicle" text
+    When User enter all insurance Info
+    Then User calculate Premium
+    And User can get Premium Amount
+    Then User can save the quotation
+    Then User should get Identification Number
+    Then close the browser
+    
     
 
   
