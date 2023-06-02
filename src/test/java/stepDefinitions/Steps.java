@@ -205,17 +205,7 @@ public class Steps extends Baseclass {
 	}
 
 	//Data DrivenTest Login
-		
 	
-
-	
-	
-	
-	
-	
-	
-	
-
 	// Home tab //retriveText
 	@Then("User see the PageTitle as {string}")
 	public void user_see_the_page_title_as(String string) {
