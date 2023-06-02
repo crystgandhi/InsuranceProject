@@ -18,11 +18,13 @@ import InsurancePageObjects.Homepage;
 import InsurancePageObjects.LoginPage;
 import InsurancePageObjects.RegisterHerePage;
 import InsurancePageObjects.RequestQuotationPage;
+import InsurancePageObjects.RetrieveQuotationPage;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.*;
 
-public class Steps extends Baseclass {
 
+public class Steps extends Baseclass {
+    static String identificationNumber=" ";
 	@Before
 	public void setUp() throws IOException {
 		String projectPath = System.getProperty("user.dir");
@@ -75,7 +77,8 @@ public class Steps extends Baseclass {
 			driver.close();
 		}
 	}
-
+    
+	
 	// Register here
 	@When("User enter title")
 	public void user_enter_title() {
@@ -201,6 +204,17 @@ public class Steps extends Baseclass {
 	    Assert.assertEquals("Enter your Email address and password correct", lp.errorMessage());
 	}
 
+	//Data DrivenTest Login
+		
+	
+
+	
+	
+	
+	
+	
+	
+	
 
 	// Home tab //retriveText
 	@Then("User see the PageTitle as {string}")
@@ -285,13 +299,57 @@ public class Steps extends Baseclass {
 	}
 
 	@Then("User should get Identification Number")
-	public void user_should_get_identification_number() {
+	public String user_should_get_identification_number() {
 		String idenNumber = rqp.saveIdentificationNumber();
 		String[] array1 = idenNumber.split(":");
 		String[] inum = array1[1].split("Please");
 		String identificationNumber = inum[0];
-		System.out.println("identificationNumber :" + identificationNumber);
+		return identificationNumber;
+	}
+//	String num=user_should_get_identification_number();
+//	System.out.println(num);
+	//Retrieve Quotation
+	@Given("User is in {string}")
+	public void user_is_in(String url) {
+		retrieve=new RetrieveQuotationPage(driver);
+		driver.get(url);
 	}
 	
+	@When("User click retrieveQuotation link")
+	public void user_click_retrieve_quotation_link() {
+		retrieve.clickRetrieveQuotation();
+	}
+
+	@When("User enter {string}")
+	public void user_enter(String identificationNumber) {
+	//String num=user_should_get_identification_number();
+		retrieve.enterIdentificationNum(identificationNumber);
+	}
+
+
+	@When("user click retrieve button")
+	public void user_click_retrieve_button() {
+		retrieve.clickRetrieveBtn();
+	}
+	@Then("User can see the message as {string}")
+	public void user_can_see_the_message_as(String string) {
+		retrieve.retrieveErrorMessage();
+	}
+
+	@Then("User can see the title as {string}")
+	public void user_can_see_the_title_as(String string) {
+		System.out.println(retrieve.getPageTitle());
+	}
+
+	@Then("User can get Estimated value")
+	public void user_can_get_estimated_value() {
+		System.out.println(retrieve.getEstimatedValue());
+	}
+
+	@Then("User can get Start of Policy date")
+	public void user_can_get_start_of_policy_date() {
+		System.out.println(retrieve.getStartPolicyDate());
+	}
+
 
 }
