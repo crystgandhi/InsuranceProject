@@ -1,10 +1,14 @@
+
+
 Feature: User Registration Page
   User is in Insurance Registration page
+  
+  Background: 
+    Given User lauch Chrome Browser
+    And User Opens Url "https://demo.guru99.com/insurance/v1/index.php"
 
   @tag1
   Scenario: Registration steps
-    Given User lauch Chrome Browser
-    And User Opens Url "https://demo.guru99.com/insurance/v1/index.php"
     And click register link
     And User Should see the Title as "Insurance Broker System - Register"
     When User enter title
@@ -27,8 +31,6 @@ Feature: User Registration Page
     Then close the browser
 
   Scenario: Login
-    Given User lauch Chrome Browser
-    And User Opens Url "https://demo.guru99.com/insurance/v1/index.php"
     Given User landed on Loginpage and get URL of the page
     When User enter loginEmail as "johnsmith@gmail.com"
     And User enter loginPassword as "john123@2020"
@@ -39,11 +41,23 @@ Feature: User Registration Page
 
   @regression
   Scenario: Login Invalid Credentials
-    Given User lauch Chrome Browser
-    And User Opens Url "https://demo.guru99.com/insurance/v1/index.php"
     Given User landed on Loginpage and get URL of the page
     When User enter loginEmail as "johnsmith@gmail.com"
     And User enter loginPassword as "john123@2023"
     And Usen click on the loginbtn
     And Use Should see error message as "Enter your Email address and password correct"
     Then close the browser
+
+    @tag2
+  Scenario Outline: login with credentials
+  Given User landed on Loginpage and get URL of the page
+  When User enter loginEmail as "<email>"
+    And User enter loginPassword as "<password>"
+  And Usen click on the loginbtn
+  #Then User see the PageTitle as "Broker Insurance WebPage"
+    
+
+    Examples: 
+      | email  | password | 
+      | johnsmith@gmail.com | john123@2020 | 
+      | john@gmail.com | john123@2020 | 

@@ -11,6 +11,7 @@ import InsurancePageObjects.Homepage;
 import InsurancePageObjects.LoginPage;
 import InsurancePageObjects.RegisterHerePage;
 import InsurancePageObjects.RequestQuotationPage;
+import InsurancePageObjects.RetrieveQuotationPage;
 
 public class Baseclass {
 	
@@ -22,6 +23,7 @@ public class Baseclass {
 	public RequestQuotationPage rqp;
 	public static Logger logger;
 	public Properties prop;
+	public RetrieveQuotationPage retrieve;
 	
 	public static String randomString(){
 		String generatedString1=RandomStringUtils.randomAlphabetic(5);
